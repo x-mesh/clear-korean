@@ -80,26 +80,32 @@ GitHub에서 바로 실행할 수 있습니다.
 uvx --from git+https://github.com/x-mesh/clear-korean clear-korean --help
 ```
 
-PyPI에 `clear-korean` 패키지를 배포한 뒤에는 더 짧게 실행할 수 있습니다. 인자 없이 실행하면 대화형 설정이 열립니다.
+PyPI 배포판은 더 짧게 실행할 수 있습니다. `@latest`를 붙이면 새 버전이 있는지 확인한 뒤 실행합니다. 인자 없이 실행하면 대화형 설정이 열립니다.
 
 ```bash
-uvx clear-korean
+uvx clear-korean@latest
 ```
 
-`uvx clear-korean setup`으로도 같은 화면을 열 수 있습니다. 시작 화면에는 CLI 버전이 표시됩니다. 단계별 화면에서 위·아래 방향키 또는 `j`/`k`로 이동하고 Enter로 선택합니다. 3단계에서 파일 설치와 지침 출력 중 하나를 고릅니다. 출력할 때는 대상과 범위를 묻지 않습니다. 설치할 때는 마지막 확인 화면에서 실제 대상 파일을 검토하거나 선택을 다시 시작할 수 있습니다. Esc나 Ctrl+C로 취소합니다.
+`uvx clear-korean@latest setup`으로도 같은 화면을 열 수 있습니다. 시작 화면에는 CLI 버전이 표시됩니다. 단계별 화면에서 위·아래 방향키 또는 `j`/`k`로 이동하고 Enter로 선택합니다. 3단계에서 파일 설치와 지침 출력 중 하나를 고릅니다. 출력할 때는 대상과 범위를 묻지 않습니다. 설치할 때는 마지막 확인 화면에서 실제 대상 파일을 검토하거나 선택을 다시 시작할 수 있습니다. Esc나 Ctrl+C로 취소합니다.
+
+`uvx clear-korean`처럼 버전을 생략하면 캐시가 유효한 동안 이전 버전이 실행될 수 있습니다. 이미 `uv tool install clear-korean`으로 설치했다면 다음 명령으로 갱신합니다.
+
+```bash
+uv tool upgrade clear-korean
+```
 
 대화형 설정에서 용도, 말투, 적용 대상, 범위와 실행 방법을 차례로 고릅니다. 터미널이 없는 자동화 환경에서는 아래 하위 명령을 사용합니다.
 
 개발자용 지침을 Codex와 Claude Code의 사용자 전역 파일에 함께 설치합니다.
 
 ```bash
-uvx clear-korean install --agent all --scope user --preset developer --tone plain
+uvx clear-korean@latest install --agent all --scope user --preset developer --tone plain
 ```
 
 현재 프로젝트에만 설치하려면 프로젝트 루트에서 실행합니다.
 
 ```bash
-uvx clear-korean install --agent all --scope project --preset developer --tone polite
+uvx clear-korean@latest install --agent all --scope project --preset developer --tone polite
 ```
 
 CLI는 기존 파일 전체를 덮어쓰지 않습니다. Clear Korean 관리 마커 사이에만 지침을 삽입하거나 갱신하며, 파일을 변경하기 전에 같은 디렉터리에 `*.clear-korean.<timestamp>.bak` 백업을 만듭니다. 심볼릭 링크와 손상된 관리 마커는 자동 수정하지 않습니다.
@@ -107,14 +113,14 @@ CLI는 기존 파일 전체를 덮어쓰지 않습니다. Clear Korean 관리 �
 쓰기 전에 변경 내용을 확인하려면 `--dry-run`을 사용합니다.
 
 ```bash
-uvx clear-korean install --agent codex --scope project --preset general --dry-run
+uvx clear-korean@latest install --agent codex --scope project --preset general --dry-run
 ```
 
 상태 확인과 제거:
 
 ```bash
-uvx clear-korean status --agent all --scope user
-uvx clear-korean remove --agent all --scope user
+uvx clear-korean@latest status --agent all --scope user
+uvx clear-korean@latest remove --agent all --scope user
 ```
 
 전체 명령과 파일 안전 정책은 [CLI 문서](docs/CLI.md)에 정리되어 있습니다.
@@ -126,14 +132,14 @@ uvx clear-korean remove --agent all --scope user
 파일을 자동 수정하지 않고 지침만 표준 출력으로 받을 수 있습니다.
 
 ```bash
-uvx clear-korean print --preset developer --tone plain
-uvx clear-korean print --preset general --tone polite
+uvx clear-korean@latest print --preset developer --tone plain
+uvx clear-korean@latest print --preset general --tone polite
 ```
 
 출력을 검토한 뒤 직접 붙여넣거나 파일로 저장할 수 있습니다.
 
 ```bash
-uvx clear-korean print --preset developer > /tmp/clear-korean.md
+uvx clear-korean@latest print --preset developer > /tmp/clear-korean.md
 ```
 
 ### Markdown을 직접 설치
