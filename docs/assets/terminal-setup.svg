@@ -8,7 +8,7 @@
   <circle cx="63" cy="23" r="6" fill="#3fb950"/>
   <text x="298.0" y="28" text-anchor="middle" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="13">clear-korean</text>
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'Noto Sans Mono CJK KR', monospace" font-size="16" xml:space="preserve">
-    <text x="28" y="66" fill="#58a6ff" fill-opacity="1" font-weight="700">Clear Korean 0.2.6</text>
+    <text x="28" y="66" fill="#58a6ff" fill-opacity="1" font-weight="700">Clear Korean 0.2.7</text>
     <text x="28" y="92" fill="#e6edf3" fill-opacity="0.62" font-weight="400">AI가 한국어로 짧고 명확하게 답하도록 돕습니다.</text>
     <text x="28" y="144" fill="#58a6ff" fill-opacity="1" font-weight="700">1/5  용도를 선택하세요</text>
     <text x="28" y="170" fill="#3fb950" fill-opacity="1" font-weight="400">❯</text>

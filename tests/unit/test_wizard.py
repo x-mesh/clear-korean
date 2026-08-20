@@ -54,6 +54,23 @@ class WizardTests(unittest.TestCase):
         self.assertIsNone(choices.scope)
         self.assertEqual(["용도를 선택하세요", "말투를 선택하세요", "사용 방법을 선택하세요"], prompts)
 
+    def test_user_scope_is_the_first_default_option(self) -> None:
+        answers = iter(("developer", "plain", "install", "codex", "user", "cancel"))
+        scope_options = None
+
+        def choose(question, options, **kwargs):
+            nonlocal scope_options
+            if question == "적용 범위를 선택하세요":
+                scope_options = options
+            return next(answers)
+
+        with patch("clear_korean.wizard.select_option", side_effect=choose):
+            choices = collect_setup(Path("/work/project"), output=io.StringIO())
+
+        self.assertEqual("user", choices.scope)
+        self.assertIsNotNone(scope_options)
+        self.assertEqual(("user", "project"), tuple(option.value for option in scope_options))
+
     def test_header_shows_version(self) -> None:
         output = io.StringIO()
         answers = iter(("developer", "plain", "print"))
@@ -62,7 +79,7 @@ class WizardTests(unittest.TestCase):
             collect_setup(Path("/work/project"), output=output)
 
         self.assertTrue(output.getvalue().startswith(
-            "Clear Korean 0.2.6\nAI가 한국어로 짧고 명확하게 답하도록 돕습니다.\n"
+            "Clear Korean 0.2.7\nAI가 한국어로 짧고 명확하게 답하도록 돕습니다.\n"
         ))
 
 

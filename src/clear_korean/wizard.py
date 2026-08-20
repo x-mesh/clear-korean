@@ -77,8 +77,8 @@ def collect_setup(directory: Path, *, output: TextIO | None = None) -> SetupChoi
         scope = select_option(
             "적용 범위를 선택하세요",
             (
-                Option("현재 프로젝트", "project", str(directory.resolve())),
                 Option("사용자 전역", "user", "모든 프로젝트에 적용"),
+                Option("현재 프로젝트", "project", str(directory.resolve())),
             ), output=output, step=(5, 5),
         )
 
