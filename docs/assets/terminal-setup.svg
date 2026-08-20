@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="596" height="253" viewBox="0 0 596 253" role="img" aria-labelledby="title description">
+  <title id="title">Clear Korean 대화형 설정 시작 화면</title>
+  <desc id="description">개발자용과 일반 사용자용 중 하나를 선택하는 터미널 화면</desc>
+  <rect width="596" height="253" rx="14" fill="#0d1117"/>
+  <path d="M14 0h568a14 14 0 0 1 14 14v32H0V14A14 14 0 0 1 14 0Z" fill="#161b22"/>
+  <circle cx="23" cy="23" r="6" fill="#f85149"/>
+  <circle cx="43" cy="23" r="6" fill="#d29922"/>
+  <circle cx="63" cy="23" r="6" fill="#3fb950"/>
+  <text x="298.0" y="28" text-anchor="middle" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="13">clear-korean</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', 'Noto Sans Mono CJK KR', monospace" font-size="16" xml:space="preserve">
+    <text x="28" y="66" fill="#58a6ff" fill-opacity="1" font-weight="700">Clear Korean 0.2.5</text>
+    <text x="28" y="92" fill="#e6edf3" fill-opacity="0.62" font-weight="400">AI가 한국어로 짧고 명확하게 답하도록 돕습니다.</text>
+    <text x="28" y="144" fill="#58a6ff" fill-opacity="1" font-weight="700">1/5  용도를 선택하세요</text>
+    <text x="28" y="170" fill="#3fb950" fill-opacity="1" font-weight="400">❯</text>
+    <text x="37" y="170" fill="#e6edf3" fill-opacity="1" font-weight="400"> </text>
+    <text x="46" y="170" fill="#3fb950" fill-opacity="1" font-weight="700">개발자용</text>
+    <text x="118" y="170" fill="#e6edf3" fill-opacity="1" font-weight="400">  </text>
+    <text x="136" y="170" fill="#e6edf3" fill-opacity="0.62" font-weight="400">코딩 · 기술 설명 · 작업 보고</text>
+    <text x="28" y="196" fill="#3fb950" fill-opacity="1" font-weight="400"> </text>
+    <text x="37" y="196" fill="#e6edf3" fill-opacity="1" font-weight="400"> 일반 사용자용  </text>
+    <text x="181" y="196" fill="#e6edf3" fill-opacity="0.62" font-weight="400">질문 · 조사 · 문서 작성</text>
+    <text x="28" y="222" fill="#e6edf3" fill-opacity="0.62" font-weight="400">↑/↓로 선택 · Enter로 확인 · Esc로 취소</text>
+  </g>
+</svg>

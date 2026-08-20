@@ -86,6 +86,8 @@ PyPI 배포판은 더 짧게 실행할 수 있습니다. `@latest`를 붙이면 
 uvx clear-korean@latest
 ```
 
+![Clear Korean 대화형 설정 시작 화면](docs/assets/terminal-setup.svg)
+
 `uvx clear-korean@latest setup`으로도 같은 화면을 열 수 있습니다. 시작 화면에는 CLI 버전이 표시됩니다. 단계별 화면에서 위·아래 방향키 또는 `j`/`k`로 이동하고 Enter로 선택합니다. 3단계에서 파일 설치와 지침 출력 중 하나를 고릅니다. 출력할 때는 대상과 범위를 묻지 않습니다. 설치할 때는 마지막 확인 화면에서 실제 대상 파일을 검토하거나 선택을 다시 시작할 수 있습니다. Esc나 Ctrl+C로 취소합니다.
 
 `uvx clear-korean`처럼 버전을 생략하면 캐시가 유효한 동안 이전 버전이 실행될 수 있습니다. 이미 `uv tool install clear-korean`으로 설치했다면 다음 명령으로 갱신합니다.
@@ -185,6 +187,12 @@ uvx clear-korean@latest print --preset developer > /tmp/clear-korean.md
 ./scripts/build.sh
 ./scripts/check.sh
 uvx --from . clear-korean --help
+```
+
+README의 터미널 화면은 실제 대화형 CLI 출력에서 생성합니다.
+
+```bash
+python3 scripts/capture_terminal.py
 ```
 
 `scripts/check.sh`는 배포 파일 동기화, 파일 크기와 CLI 단위 테스트를 검사합니다. 행동 테스트 사례는 [`tests/cases.tsv`](tests/cases.tsv)에 있습니다. 실행 방법과 검증 기록은 [`tests/README.md`](tests/README.md)에서 관리합니다. 모델 실행은 비용과 환경 차이가 있으므로 기본 검사에 포함하지 않습니다.
