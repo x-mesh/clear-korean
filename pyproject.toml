@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "clear-korean"
+version = "0.2.4"
+description = "Install concise and clear Korean output instructions for AI agents"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Clear Korean contributors" }]
+dependencies = []
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.scripts]
+clear-korean = "clear_korean.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/clear_korean"]

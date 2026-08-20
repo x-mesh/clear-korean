@@ -1,0 +1,120 @@
+#!/usr/bin/env python3
+"""Run `codex exec` with only the configured custom-provider provider."""
+
+from __future__ import annotations
+
+import os
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+
+
+HELP = """사용법: codex-isolated [래퍼 옵션] [codex exec 옵션] [프롬프트]
+
+전역 Codex 설정, AGENTS, 훅, MCP와 세션 기록을 제외하고 custom-provider provider만
+사용해 `codex exec`를 실행합니다. 기본 작업 디렉터리는 비어 있는 임시 디렉터리입니다.
+
+래퍼 옵션:
+  --workdir PATH   지정한 디렉터리에서 실행합니다. 이 경우 그 디렉터리의 AGENTS가 로드될 수 있습니다.
+  --show-command   실제 실행할 명령을 출력하고 종료합니다.
+  -h, --help       이 도움말을 표시합니다.
+
+환경 변수:
+  CODEX_ISOLATED_MODEL       모델 이름. 기본값: gpt-5.6-sol
+  CODEX_ISOLATED_EFFORT      reasoning effort. 기본값: xhigh
+  CODEX_ISOLATED_BASE_URL    provider URL. 기본값: https://provider.example/v1
+  CODEX_ISOLATED_PROVIDER    provider 이름. 기본값: custom-provider
+  CODEX_ISOLATED_ENV_KEY     API 키 환경 변수 이름. 기본값: CODEX_ISOLATED_API_KEY
+
+예:
+  codex-isolated "이 문장을 자연스럽게 고쳐줘: 설정 변경 후 오류 발생 가능"
+  codex-isolated --output-schema schema.json -o result.json "답변을 평가해줘"
+  CODEX_ISOLATED_EFFORT=high codex-isolated "DNS 캐시를 두 문장으로 설명해줘"
+"""
+
+
+def quote(argument: str) -> str:
+    if argument and all(character.isalnum() or character in "-._/:=" for character in argument):
+        return argument
+    return "'" + argument.replace("'", "'\"'\"'") + "'"
+
+
+def main() -> int:
+    arguments = sys.argv[1:]
+    if any(argument in ("-h", "--help") for argument in arguments):
+        print(HELP)
+        return 0
+
+    workdir: Path | None = None
+    show_command = False
+    forwarded: list[str] = []
+    index = 0
+    while index < len(arguments):
+        argument = arguments[index]
+        if argument == "--workdir":
+            if index + 1 >= len(arguments):
+                print("오류: --workdir 뒤에 경로가 필요합니다.", file=sys.stderr)
+                return 2
+            workdir = Path(arguments[index + 1]).expanduser().resolve()
+            index += 2
+            continue
+        if argument == "--show-command":
+            show_command = True
+            index += 1
+            continue
+        forwarded.append(argument)
+        index += 1
+
+    provider = os.environ.get("CODEX_ISOLATED_PROVIDER", "custom-provider")
+    model = os.environ.get("CODEX_ISOLATED_MODEL", "gpt-5.6-sol")
+    effort = os.environ.get("CODEX_ISOLATED_EFFORT", "xhigh")
+    base_url = os.environ.get("CODEX_ISOLATED_BASE_URL", "https://provider.example/v1")
+    env_key = os.environ.get("CODEX_ISOLATED_ENV_KEY", "CODEX_ISOLATED_API_KEY")
+    if not os.environ.get(env_key):
+        print(f"오류: {env_key} 환경 변수가 필요합니다.", file=sys.stderr)
+        return 2
+
+    with tempfile.TemporaryDirectory(
+        prefix="codex-isolated-home.", ignore_cleanup_errors=True,
+    ) as home_name, tempfile.TemporaryDirectory(
+        prefix="codex-isolated-work.", ignore_cleanup_errors=True,
+    ) as work_name:
+        selected_workdir = workdir or Path(work_name)
+        if not selected_workdir.is_dir():
+            print(f"오류: 작업 디렉터리가 없습니다: {selected_workdir}", file=sys.stderr)
+            return 2
+        command = [
+            "codex",
+            "exec",
+            "--ephemeral",
+            "--ignore-user-config",
+            "--skip-git-repo-check",
+            "-C",
+            str(selected_workdir),
+            "-c",
+            f'model_provider="{provider}"',
+            "-c",
+            f'model="{model}"',
+            "-c",
+            f'model_reasoning_effort="{effort}"',
+            "-c",
+            f'model_providers.{provider}.name="{provider}"',
+            "-c",
+            f'model_providers.{provider}.base_url="{base_url}"',
+            "-c",
+            f'model_providers.{provider}.wire_api="responses"',
+            "-c",
+            f'model_providers.{provider}.env_key="{env_key}"',
+            *forwarded,
+        ]
+        if show_command:
+            print(" ".join(quote(argument) for argument in command))
+            return 0
+        environment = os.environ.copy()
+        environment["CODEX_HOME"] = home_name
+        return subprocess.run(command, env=environment).returncode
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

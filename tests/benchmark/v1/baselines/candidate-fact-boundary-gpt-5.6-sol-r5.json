@@ -1,0 +1,501 @@
+{
+  "run": {
+    "id": "benchmark-v1-candidate-fact-boundary-r5",
+    "evaluated_at": "2026-08-20T02:18:05.343274+00:00",
+    "suite": "tests/benchmark/v1/cases.jsonl",
+    "corpus_hash": "6554eb8412fab0e1a840bf4e31df973921e55da80a15c9a1c6d3faa9157deb7a",
+    "candidate_root": ".",
+    "condition": "candidate",
+    "model": "gpt-5.6-sol",
+    "provider": "custom-provider",
+    "reasoning_effort": "xhigh",
+    "repetitions": 5,
+    "judge_repetitions": 5
+  },
+  "aggregate": {
+    "overall": {
+      "composite": 96.94863247863248,
+      "checks": 96.06623931623932,
+      "scores": {
+        "naturalness": 4.913846153846154,
+        "clarity": 4.929230769230769,
+        "style_fit": 4.864615384615385,
+        "concision": 4.8,
+        "fidelity": 4.7846153846153845
+      },
+      "critical_failures": 0
+    },
+    "genres": {
+      "건강 정보": 92.624,
+      "경영 요약": 99.11111111111111,
+      "고객 공지": 99.744,
+      "고객 지원 답변": 100.0,
+      "금융 정보": 88.74311111111112,
+      "기술 결정 기록": 96.416,
+      "다국어 UI 안내": 99.616,
+      "릴리스 노트": 100.0,
+      "버그 보고서": 97.568,
+      "보안 공지": 99.61600000000001,
+      "사과문": 98.872,
+      "선택지 비교": 99.744,
+      "업무 이메일": 93.91600000000001,
+      "연구 요약": 100.0,
+      "인용과 교정": 89.11466666666666,
+      "자료 기반 요약": 98.85714285714286,
+      "작업 완료 보고": 100.0,
+      "장애 현황": 99.55555555555556,
+      "전문 기술 설명": 94.752,
+      "절차 안내": 99.088,
+      "정책 안내": 97.464,
+      "제품 안내 문구": 96.72,
+      "초보자 설명": 88.18285714285715,
+      "친구 메시지": 96.672,
+      "코드 리뷰": 94.288,
+      "회의 요약": 100.0
+    },
+    "cases": [
+      {
+        "case": "incident-update",
+        "genre": "장애 현황",
+        "composite": 99.55555555555556,
+        "sample_count": 5,
+        "standard_deviation": 0.9938079899999094,
+        "standard_error": 0.4444444444444457,
+        "checks": 97.77777777777777,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 5,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "completion-report",
+        "genre": "작업 완료 보고",
+        "composite": 100.0,
+        "sample_count": 5,
+        "standard_deviation": 0.0,
+        "standard_error": 0.0,
+        "checks": 100.0,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 5,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "code-review",
+        "genre": "코드 리뷰",
+        "composite": 94.288,
+        "sample_count": 5,
+        "standard_deviation": 2.0097562041202863,
+        "standard_error": 0.8987902981229806,
+        "checks": 90.0,
+        "scores": {
+          "naturalness": 4.84,
+          "clarity": 5,
+          "style_fit": 4.92,
+          "concision": 4.36,
+          "fidelity": 4.72
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "expert-explanation",
+        "genre": "전문 기술 설명",
+        "composite": 94.752,
+        "sample_count": 5,
+        "standard_deviation": 1.5279790574481087,
+        "standard_error": 0.6833330081300054,
+        "checks": 100.0,
+        "scores": {
+          "naturalness": 4.96,
+          "clarity": 4.92,
+          "style_fit": 5,
+          "concision": 4.72,
+          "fidelity": 3.76
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "bug-report",
+        "genre": "버그 보고서",
+        "composite": 97.568,
+        "sample_count": 5,
+        "standard_deviation": 0.7010848736066152,
+        "standard_error": 0.31353468707624793,
+        "checks": 100.0,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 4.24,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "release-notes",
+        "genre": "릴리스 노트",
+        "composite": 100.0,
+        "sample_count": 5,
+        "standard_deviation": 0.0,
+        "standard_error": 0.0,
+        "checks": 100.0,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 5,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "architecture-decision",
+        "genre": "기술 결정 기록",
+        "composite": 96.416,
+        "sample_count": 5,
+        "standard_deviation": 3.7754575881606707,
+        "standard_error": 1.688435962658933,
+        "checks": 100.0,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 4.48,
+          "fidelity": 4.4
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "security-advisory",
+        "genre": "보안 공지",
+        "composite": 99.61600000000001,
+        "sample_count": 5,
+        "standard_deviation": 0.35054243680329883,
+        "standard_error": 0.15676734353812005,
+        "checks": 100.0,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 4.92,
+          "fidelity": 4.96
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "novice-explanation",
+        "genre": "초보자 설명",
+        "composite": 88.18285714285715,
+        "sample_count": 5,
+        "standard_deviation": 2.023922237757608,
+        "standard_error": 0.9051255409599006,
+        "checks": 85.71428571428571,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 4.32,
+          "style_fit": 4.96,
+          "concision": 4.64,
+          "fidelity": 3.28
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "customer-notice",
+        "genre": "고객 공지",
+        "composite": 99.744,
+        "sample_count": 5,
+        "standard_deviation": 0.35054243680329883,
+        "standard_error": 0.15676734353812005,
+        "checks": 100.0,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 4.92,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "support-answer",
+        "genre": "고객 지원 답변",
+        "composite": 100.0,
+        "sample_count": 5,
+        "standard_deviation": 0.0,
+        "standard_error": 0.0,
+        "checks": 100.0,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 5,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "work-email",
+        "genre": "업무 이메일",
+        "composite": 93.91600000000001,
+        "sample_count": 5,
+        "standard_deviation": 1.668915815731876,
+        "standard_error": 0.7463618425401974,
+        "checks": 87.5,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 4.08,
+          "concision": 4.8,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "casual-message",
+        "genre": "친구 메시지",
+        "composite": 96.672,
+        "sample_count": 5,
+        "standard_deviation": 3.2127745018908462,
+        "standard_error": 1.4367964365211916,
+        "checks": 100.0,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 4.4,
+          "fidelity": 4.56
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "meeting-summary",
+        "genre": "회의 요약",
+        "composite": 100.0,
+        "sample_count": 5,
+        "standard_deviation": 0.0,
+        "standard_error": 0.0,
+        "checks": 100.0,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 5,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "executive-summary",
+        "genre": "경영 요약",
+        "composite": 99.11111111111111,
+        "sample_count": 5,
+        "standard_deviation": 1.2171612389003725,
+        "standard_error": 0.5443310539518188,
+        "checks": 95.55555555555556,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 5,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "procedure",
+        "genre": "절차 안내",
+        "composite": 99.088,
+        "sample_count": 5,
+        "standard_deviation": 2.039293995479809,
+        "standard_error": 0.9120000000000004,
+        "checks": 98.0,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 4.84,
+          "concision": 5,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "comparison",
+        "genre": "선택지 비교",
+        "composite": 99.744,
+        "sample_count": 5,
+        "standard_deviation": 0.35054243680329883,
+        "standard_error": 0.15676734353812005,
+        "checks": 100.0,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 4.92,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "source-limited-summary",
+        "genre": "자료 기반 요약",
+        "composite": 98.85714285714286,
+        "sample_count": 5,
+        "standard_deviation": 2.555506259999757,
+        "standard_error": 1.1428571428571417,
+        "checks": 94.28571428571429,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 5,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "policy-explanation",
+        "genre": "정책 안내",
+        "composite": 97.464,
+        "sample_count": 5,
+        "standard_deviation": 3.9160541365001538,
+        "standard_error": 1.7513126505567167,
+        "checks": 95.0,
+        "scores": {
+          "naturalness": 4.96,
+          "clarity": 5,
+          "style_fit": 4.8,
+          "concision": 5,
+          "fidelity": 4.76
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "apology-message",
+        "genre": "사과문",
+        "composite": 98.872,
+        "sample_count": 5,
+        "standard_deviation": 1.5610637398902028,
+        "standard_error": 0.6981289279209086,
+        "checks": 95.0,
+        "scores": {
+          "naturalness": 4.96,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 5,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "product-copy",
+        "genre": "제품 안내 문구",
+        "composite": 96.72,
+        "sample_count": 5,
+        "standard_deviation": 1.8101933598375632,
+        "standard_error": 0.8095430810031058,
+        "checks": 90.0,
+        "scores": {
+          "naturalness": 4.68,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 4.92,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "research-summary",
+        "genre": "연구 요약",
+        "composite": 100.0,
+        "sample_count": 5,
+        "standard_deviation": 0.0,
+        "standard_error": 0.0,
+        "checks": 100.0,
+        "scores": {
+          "naturalness": 5,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 5,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "medical-information",
+        "genre": "건강 정보",
+        "composite": 92.624,
+        "sample_count": 5,
+        "standard_deviation": 3.380426008656306,
+        "standard_error": 1.5117724696527584,
+        "checks": 90.0,
+        "scores": {
+          "naturalness": 4.96,
+          "clarity": 4.4,
+          "style_fit": 4.6,
+          "concision": 4.8,
+          "fidelity": 4.56
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "financial-information",
+        "genre": "금융 정보",
+        "composite": 88.74311111111112,
+        "sample_count": 5,
+        "standard_deviation": 18.386753793471225,
+        "standard_error": 8.222806273550757,
+        "checks": 95.55555555555556,
+        "scores": {
+          "naturalness": 4.56,
+          "clarity": 4.52,
+          "style_fit": 4.4,
+          "concision": 3.68,
+          "fidelity": 4.6
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "quotation-edit",
+        "genre": "인용과 교정",
+        "composite": 89.11466666666666,
+        "sample_count": 5,
+        "standard_deviation": 0.2862167011199733,
+        "standard_error": 0.1280000000000001,
+        "checks": 83.33333333333333,
+        "scores": {
+          "naturalness": 3.96,
+          "clarity": 5,
+          "style_fit": 3.88,
+          "concision": 5,
+          "fidelity": 4.8
+        },
+        "critical_failures": 0
+      },
+      {
+        "case": "multilingual-ui",
+        "genre": "다국어 UI 안내",
+        "composite": 99.616,
+        "sample_count": 5,
+        "standard_deviation": 0.85865010335992,
+        "standard_error": 0.3840000000000003,
+        "checks": 100.0,
+        "scores": {
+          "naturalness": 4.88,
+          "clarity": 5,
+          "style_fit": 5,
+          "concision": 5,
+          "fidelity": 5
+        },
+        "critical_failures": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "clear-korean-style-v1",
+  "version": 1,
+  "language": "ko-KR",
+  "case_count": 26,
+  "dimensions": ["naturalness", "clarity", "style_fit", "concision", "fidelity"],
+  "scoring": {
+    "judge_weight": 0.8,
+    "deterministic_weight": 0.2,
+    "critical_failure_cap": 50
+  },
+  "notes": "기준 답안은 유일한 정답이 아니라 정보량과 품질의 기준점이다."
+}
