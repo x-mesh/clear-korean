@@ -28,9 +28,13 @@ class PresetContentTests(unittest.TestCase):
         developer = load_preset("developer")
         general = load_preset("general")
         self.assertIn("### 코드와 기술 용어", developer)
+        self.assertIn("영어로 등장했다는 사실만으로 사용자가 그 용어에 익숙하다고 판단하지 않는다", developer)
+        self.assertIn("로그와 작업 메모의 내부 상태명, Git 상태와 `diff`, 모델 선택과 평가 절차", developer)
         self.assertNotIn("### 대화와 문서", developer)
         self.assertIn("### 대화와 문서", general)
         self.assertNotIn("### 코드와 기술 용어", general)
+        self.assertNotIn("영어로 등장했다는 사실만으로 사용자가 그 용어에 익숙하다고 판단하지 않는다", general)
+        self.assertNotIn("로그와 작업 메모의 내부 상태명, Git 상태와 `diff`, 모델 선택과 평가 절차", general)
 
     def test_tone_rules_are_mutually_exclusive(self) -> None:
         for preset in ("developer", "general"):

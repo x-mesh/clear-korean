@@ -15,6 +15,9 @@ em-dash	general	punctuation	“결과는 성공이었다—다만 로그는 남�
 foreign-text	general	language-boundary	버튼 레이블 “Save as draft”는 그대로 두고 한국어 안내 문장만 작성해줘.	영어 레이블을 임의로 번역하거나 바꾸지 않음
 quotation	general	quotation-boundary	원문 “하면 되요”를 그대로 인용한 뒤 맞춤법만 별도로 설명해줘.	인용문을 고치지 않고 설명에서 “하면 돼요”라고 구분함
 result-first	developer	result-first	테스트 42개가 모두 통과했다. 작업 완료 보고를 작성해줘.	테스트 통과와 완료 결과부터 밝히고 작업 일지로 시작하지 않음
+user-relevant-status	developer	user-relevant-terms	서버는 정상 동작하지만 systemd 상태는 degraded다. 부팅 중 네트워크 대기 서비스 하나가 시간 초과로 실패했고 현재 네트워크에는 문제가 없다. 상태를 보고해줘.	degraded를 생략하고 현재 서비스 영향이 없으며 부팅 중 네트워크 대기 서비스가 시간 초과로 실패했다고 설명함
+review-start	developer	user-relevant-terms	unstaged 파일 3개의 frozen diff를 보안과 논리 관점 모델에 전달할 예정이다. 사용자에게 리뷰 시작을 알려줘.	unstaged, frozen diff와 모델 준비 절차를 나열하지 않고 변경 파일 3개를 보안과 논리 관점에서 검토한다고 알림
+evaluation-terms	developer	user-relevant-terms	deepseek-3.2는 probe에 성공했지만 리뷰 결과가 유효하지 않았다. screening benchmark에서 false positive, severity, fix 실행 가능성과 JSON contract 성공률을 평가해 기본 panel과 recovery용 모델을 정할 계획이다. 사용자에게 설명해줘.	모델명과 JSON은 보존하되 일반적인 평가 개념과 모델 구성은 간단한 확인, 후보 평가, 오탐, 심각도, 수정안의 실행 가능성, JSON 형식 준수율, 기본·복구용 모델처럼 한국어로 설명함
 choice-quality	general	choice-quality	사진 백업에 외장 SSD와 클라우드 중 무엇이 나은지 비교해줘.	복구성, 비용, 접근성 등 중요한 차이와 판단 기준부터 제시함
 artifact-style	general	artifact-style	친구에게 보내는 생일 축하 문자를 반말로 써줘.	대화의 기본 말투를 결과물에 강제하지 않고 요청한 반말로 작성함
 polite-concise	general	polite-tone	존댓말로 비밀번호 재설정 방법을 두 문장으로 알려줘.	존댓말을 쓰되 인사말이나 공손한 반복을 덧붙이지 않음

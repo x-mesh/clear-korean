@@ -29,6 +29,7 @@ REQUIRED_PRINCIPLES = {
     "result-first",
     "source-boundary",
     "uncertainty",
+    "user-relevant-terms",
     "user-tone",
 }
 
