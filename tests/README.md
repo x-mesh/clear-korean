@@ -25,7 +25,7 @@ codex exec --ephemeral --skip-git-repo-check \
 
 `style_cases.tsv`에는 교정 요청이 아닌 실제 작성 과제가 있다. `scripts/evaluate_styles.py`는 지침 없는 기준군과 Clear Korean 적용군을 반복 생성하고, 출처를 가린 답변 쌍을 Codex가 세 번씩 판정한다. 실행법과 2026-08-20 결과는 [`docs/STYLE_EVALUATION.md`](../docs/STYLE_EVALUATION.md)에 정리했다.
 
-평가기는 custom-provider provider만 유지하는 `scripts/codex-isolated`를 사용한다. 전역 설치와 격리 범위는 [`docs/CODEX_ISOLATED.md`](../docs/CODEX_ISOLATED.md)에서 설명한다.
+평가기는 지정한 provider만 유지하는 `scripts/codex-isolated`를 사용한다. 전역 설치와 격리 범위는 [`docs/CODEX_ISOLATED.md`](../docs/CODEX_ISOLATED.md)에서 설명한다.
 
 ## 고정 benchmark와 회귀 검사
 

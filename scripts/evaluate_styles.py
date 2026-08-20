@@ -133,8 +133,11 @@ def main() -> int:
     parser.add_argument("--case", action="append", dest="selected_cases")
     args = parser.parse_args()
 
-    if not os.environ.get("CODEX_ISOLATED_API_KEY"):
-        parser.error("CODEX_ISOLATED_API_KEY가 필요합니다.")
+    env_key = os.environ.get("CODEX_ISOLATED_ENV_KEY", "CODEX_ISOLATED_API_KEY")
+    if not os.environ.get("CODEX_ISOLATED_BASE_URL"):
+        parser.error("CODEX_ISOLATED_BASE_URL이 필요합니다.")
+    if not os.environ.get(env_key):
+        parser.error(f"{env_key}가 필요합니다.")
 
     cases = load_cases(args.cases)
     if args.selected_cases:
@@ -284,7 +287,7 @@ def main() -> int:
     result = {
         "evaluated_at": datetime.now(timezone.utc).isoformat(),
         "model": "gpt-5.6-sol",
-        "provider": "custom-provider",
+        "provider": os.environ.get("CODEX_ISOLATED_PROVIDER", "custom-provider"),
         "reasoning_effort": "xhigh",
         "repetitions": args.repetitions,
         "judge_repetitions": args.judge_repetitions,

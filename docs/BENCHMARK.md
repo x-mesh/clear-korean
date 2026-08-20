@@ -35,7 +35,7 @@ Clear Korean의 지침을 바꿀 때 같은 26개 과제로 응답을 생성하�
 
 ## v1 기준 결과
 
-2026-08-20에 GPT-5.6 Sol, custom-provider, xhigh 조건으로 각 사례를 5회 생성하고 응답마다 5회 판정했다.
+2026-08-20에 GPT-5.6 Sol, custom provider, xhigh 조건으로 각 사례를 5회 생성하고 응답마다 5회 판정했다.
 
 | 조건 | 종합 | 자연스러움 | 명확성 | 문체 적합성 | 간결성 | 사실 보존 | 치명적 실패 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -63,7 +63,7 @@ Luna를 판정 모델로도 사용하려 했지만 탭 구분 점수 형식을 �
 
 ## 기준점 만들기
 
-`codex-isolated`는 custom-provider provider 설정만 유지하고 전역 지침과 세션을 격리한다. 아래 세 실행은 모델, provider, reasoning effort, 반복 횟수가 같아야 한다.
+`codex-isolated`는 지정한 provider 설정만 유지하고 전역 지침과 세션을 격리한다. 아래 세 실행은 모델, provider, reasoning effort, 반복 횟수가 같아야 한다.
 
 ```bash
 python3 scripts/benchmark_korean.py \

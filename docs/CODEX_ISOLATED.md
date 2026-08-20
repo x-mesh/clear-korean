@@ -1,6 +1,6 @@
 # Codex 격리 실행
 
-`codex-isolated`는 custom-provider provider 설정만 유지하고 다음 전역 상태를 제외한 채 `codex exec`를 실행한다.
+`codex-isolated`는 지정한 provider 설정만 유지하고 다음 전역 상태를 제외한 채 `codex exec`를 실행한다.
 
 - 사용자 `AGENTS.md`
 - Codex 훅과 MCP
@@ -22,9 +22,11 @@ codex-isolated "DNS 캐시를 두 문장으로 설명해줘"
 codex-isolated --workdir /tmp/test-project "프로젝트 지침을 적용해 답해줘"
 ```
 
-모델과 reasoning effort는 환경 변수로 바꾼다.
+provider URL과 API 키를 환경 변수로 지정한다. 모델과 reasoning effort도 바꿀 수 있다.
 
 ```bash
+export CODEX_ISOLATED_BASE_URL=https://provider.example/v1
+export CODEX_ISOLATED_API_KEY=your-api-key
 CODEX_ISOLATED_MODEL=gpt-5.6-sol \
 CODEX_ISOLATED_EFFORT=high \
 codex-isolated "질문"

@@ -40,6 +40,7 @@ class EvaluationToolTests(unittest.TestCase):
 
     def test_isolated_wrapper_show_command_uses_custom_provider_without_secret(self) -> None:
         environment = os.environ.copy()
+        environment["CODEX_ISOLATED_BASE_URL"] = "https://provider.example/v1"
         environment["CODEX_ISOLATED_API_KEY"] = "secret-value"
         completed = subprocess.run(
             [str(PROJECT_DIR / "scripts" / "codex-isolated"), "--show-command", "질문"],

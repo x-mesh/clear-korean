@@ -8,7 +8,7 @@ Clear Korean은 평가한 12개 문체에서 전체 품질을 소폭 높였다. 
 
 - 실행일: 2026-08-20
 - 모델: `gpt-5.6-sol`
-- provider: `custom-provider`
+- provider: custom provider
 - reasoning effort: `xhigh`
 - 문체: 12종
 - 반복: 문체마다 5회

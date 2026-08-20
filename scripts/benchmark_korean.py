@@ -66,6 +66,14 @@ def corpus_hash(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def portable_path(path: Path) -> str:
+    resolved = path.resolve()
+    try:
+        return resolved.relative_to(PROJECT_DIR).as_posix() or "."
+    except ValueError:
+        return path.as_posix()
+
+
 def run_codex(
     workdir: Path, prompt: str, output_path: Path, *, model: str | None = None,
 ) -> str:
@@ -340,8 +348,11 @@ def main() -> int:
     parser.add_argument("--enforce", action="store_true")
     args = parser.parse_args()
 
-    if not os.environ.get("CODEX_ISOLATED_API_KEY"):
-        parser.error("CODEX_ISOLATED_API_KEY가 필요합니다.")
+    env_key = os.environ.get("CODEX_ISOLATED_ENV_KEY", "CODEX_ISOLATED_API_KEY")
+    if not os.environ.get("CODEX_ISOLATED_BASE_URL"):
+        parser.error("CODEX_ISOLATED_BASE_URL이 필요합니다.")
+    if not os.environ.get(env_key):
+        parser.error(f"{env_key}가 필요합니다.")
     cases = load_cases(args.suite)
     if args.selected_cases:
         selected = set(args.selected_cases)
@@ -464,8 +475,8 @@ def main() -> int:
     result = {
         "run": {
             "id": args.output.name, "evaluated_at": datetime.now(timezone.utc).isoformat(),
-            "suite": str(args.suite), "corpus_hash": corpus_hash(args.suite),
-            "candidate_root": str(args.candidate_root.resolve()),
+            "suite": portable_path(args.suite), "corpus_hash": corpus_hash(args.suite),
+            "candidate_root": portable_path(args.candidate_root),
             "condition": args.condition,
             "model": generation_model,
             "judge_model": judge_model,

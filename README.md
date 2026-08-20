@@ -235,7 +235,7 @@ python3 scripts/capture_terminal.py
 
 `scripts/check.sh`는 배포 파일 동기화, 파일 크기와 CLI 단위 테스트를 검사합니다. 행동 테스트 사례는 [`tests/cases.tsv`](tests/cases.tsv)에 있습니다. 실행 방법과 검증 기록은 [`tests/README.md`](tests/README.md)에서 관리합니다. 모델 실행은 비용과 환경 차이가 있으므로 기본 검사에 포함하지 않습니다.
 
-12개 한국어 문체의 적용 전후 비교 결과는 [`docs/STYLE_EVALUATION.md`](docs/STYLE_EVALUATION.md)에 있습니다. 지침 후보를 26개 고정 문체와 기준 답안으로 채점하고 회귀를 검사하는 방법은 [`docs/BENCHMARK.md`](docs/BENCHMARK.md)에 정리했습니다. custom-provider 설정만 유지하며 Codex를 격리 실행하는 전역 명령은 [`docs/CODEX_ISOLATED.md`](docs/CODEX_ISOLATED.md)에서 설명합니다.
+12개 한국어 문체의 적용 전후 비교 결과는 [`docs/STYLE_EVALUATION.md`](docs/STYLE_EVALUATION.md)에 있습니다. 지침 후보를 26개 고정 문체와 기준 답안으로 채점하고 회귀를 검사하는 방법은 [`docs/BENCHMARK.md`](docs/BENCHMARK.md)에 정리했습니다. 지정한 provider 설정만 유지하며 Codex를 격리 실행하는 전역 명령은 [`docs/CODEX_ISOLATED.md`](docs/CODEX_ISOLATED.md)에서 설명합니다.
 
 ## 참고한 공식 문서
 

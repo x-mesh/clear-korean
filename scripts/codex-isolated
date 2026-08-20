@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run `codex exec` with only the configured custom-provider provider."""
+"""Run `codex exec` with only the configured custom provider."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ from pathlib import Path
 
 HELP = """사용법: codex-isolated [래퍼 옵션] [codex exec 옵션] [프롬프트]
 
-전역 Codex 설정, AGENTS, 훅, MCP와 세션 기록을 제외하고 custom-provider provider만
+전역 Codex 설정, AGENTS, 훅, MCP와 세션 기록을 제외하고 지정한 provider만
 사용해 `codex exec`를 실행합니다. 기본 작업 디렉터리는 비어 있는 임시 디렉터리입니다.
 
 래퍼 옵션:
@@ -23,7 +23,7 @@ HELP = """사용법: codex-isolated [래퍼 옵션] [codex exec 옵션] [프롬�
 환경 변수:
   CODEX_ISOLATED_MODEL       모델 이름. 기본값: gpt-5.6-sol
   CODEX_ISOLATED_EFFORT      reasoning effort. 기본값: xhigh
-  CODEX_ISOLATED_BASE_URL    provider URL. 기본값: https://provider.example/v1
+  CODEX_ISOLATED_BASE_URL    provider URL. 필수
   CODEX_ISOLATED_PROVIDER    provider 이름. 기본값: custom-provider
   CODEX_ISOLATED_ENV_KEY     API 키 환경 변수 이름. 기본값: CODEX_ISOLATED_API_KEY
 
@@ -69,8 +69,11 @@ def main() -> int:
     provider = os.environ.get("CODEX_ISOLATED_PROVIDER", "custom-provider")
     model = os.environ.get("CODEX_ISOLATED_MODEL", "gpt-5.6-sol")
     effort = os.environ.get("CODEX_ISOLATED_EFFORT", "xhigh")
-    base_url = os.environ.get("CODEX_ISOLATED_BASE_URL", "https://provider.example/v1")
+    base_url = os.environ.get("CODEX_ISOLATED_BASE_URL")
     env_key = os.environ.get("CODEX_ISOLATED_ENV_KEY", "CODEX_ISOLATED_API_KEY")
+    if not base_url:
+        print("오류: CODEX_ISOLATED_BASE_URL 환경 변수가 필요합니다.", file=sys.stderr)
+        return 2
     if not os.environ.get(env_key):
         print(f"오류: {env_key} 환경 변수가 필요합니다.", file=sys.stderr)
         return 2
