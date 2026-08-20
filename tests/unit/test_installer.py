@@ -151,15 +151,15 @@ class TargetTests(unittest.TestCase):
     def test_project_targets(self) -> None:
         directory = Path("/tmp/project")
         targets = resolve_targets("all", "project", directory)
-        self.assertEqual(directory / "AGENTS.md", targets[0].path)
-        self.assertEqual(directory / "CLAUDE.md", targets[1].path)
+        self.assertEqual(directory.resolve() / "AGENTS.md", targets[0].path)
+        self.assertEqual(directory.resolve() / "CLAUDE.md", targets[1].path)
 
     def test_user_targets_honor_codex_home(self) -> None:
         home = Path("/tmp/home")
         codex_home = Path("/tmp/custom-codex")
         targets = resolve_targets("all", "user", Path.cwd(), home=home, codex_home=codex_home)
-        self.assertEqual(codex_home / "AGENTS.md", targets[0].path)
-        self.assertEqual(home / ".claude" / "CLAUDE.md", targets[1].path)
+        self.assertEqual(codex_home.resolve() / "AGENTS.md", targets[0].path)
+        self.assertEqual(home.resolve() / ".claude" / "CLAUDE.md", targets[1].path)
 
 
 if __name__ == "__main__":
