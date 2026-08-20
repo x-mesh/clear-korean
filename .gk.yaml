@@ -1,0 +1,22 @@
+base_branch: main
+
+branch:
+  protected:
+    - main
+
+preflight:
+  steps:
+    - name: commit-lint
+      command: git-kit lint-commit HEAD^..HEAD
+    - name: branch-check
+      command: branch-check
+    - name: no-conflict
+      command: no-conflict
+    - name: check
+      command: ./scripts/check.sh
+    - name: smoke
+      command: uvx --from . clear-korean --version
+
+ship:
+  version_files:
+    - pyproject.toml
