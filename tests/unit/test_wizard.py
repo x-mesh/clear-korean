@@ -62,7 +62,7 @@ class WizardTests(unittest.TestCase):
             collect_setup(Path("/work/project"), output=output)
 
         self.assertTrue(output.getvalue().startswith(
-            "Clear Korean 0.2.4\nAI가 한국어로 짧고 명확하게 답하도록 돕습니다.\n"
+            "Clear Korean 0.2.5\nAI가 한국어로 짧고 명확하게 답하도록 돕습니다.\n"
         ))
 
 
