@@ -8,6 +8,15 @@ from clear_korean.installer import load_preset
 class PresetContentTests(unittest.TestCase):
     def test_every_preset_contains_natural_sentence_rules(self) -> None:
         required_phrases = (
+            "## 한국어 출력 지침",
+            "### 적용 범위",
+            "이 지침을 요약해서 적용하지 않는다",
+            "인용문, 코드, 코드 주석에는 적용하지 않는다",
+            "정착된 번역어나 음차가 있으면 우선 사용하고",
+            "사실 사이의 인과와 상태를 엮으면",
+            "지출한 비용을 추론하는 토큰 카운트 함수에 오류가 발생하면",
+            "코드에 명시하는 상황",
+            "사본에 기재된 문구는 작업이 진행되는 상황을",
             "비교 요청에는 비교 내용을, 작성 요청에는 작성한 글을 제공한다",
             "간결하게 쓰기 위해 필수 내용을 생략하지 않는다",
             "여러 명사를 이어 붙이기보다 조사와 서술어로 관계를 밝힌다",
@@ -21,6 +30,8 @@ class PresetContentTests(unittest.TestCase):
             for tone in ("plain", "polite"):
                 with self.subTest(preset=preset, tone=tone):
                     content = load_preset(preset, tone)
+                    self.assertLess(content.index("## 한국어 출력 지침"), content.index("## 말투:"))
+                    self.assertLess(content.index("## 말투:"), content.index("용 추가 원칙"))
                     for phrase in required_phrases:
                         self.assertIn(phrase, content)
 
