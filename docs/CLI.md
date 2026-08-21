@@ -34,8 +34,10 @@ NO_COLOR=1 clear-korean status --agent all --scope user
 파일을 수정하지 않고 완성된 지침을 표준 출력으로 보낸다.
 
 ```text
-clear-korean print --preset developer|general --tone plain|polite
+clear-korean print [--preset developer|general] [--tone plain|polite]
 ```
+
+`--preset`의 기본값은 `developer`, `--tone`의 기본값은 `plain`이다.
 
 ### `install`
 
@@ -44,10 +46,12 @@ clear-korean print --preset developer|general --tone plain|polite
 ```text
 clear-korean install --agent codex|claude|all \
   --scope user|project \
-  --preset developer|general \
-  --tone plain|polite \
+  [--preset developer|general] \
+  [--tone plain|polite] \
   [--directory PATH] [--dry-run]
 ```
+
+`--preset`의 기본값은 `developer`, `--tone`의 기본값은 `plain`이다.
 
 대상 경로:
 
