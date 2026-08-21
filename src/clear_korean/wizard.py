@@ -59,7 +59,7 @@ def collect_setup(directory: Path, *, output: TextIO | None = None) -> SetupChoi
         mode = select_option(
             "사용 방법을 선택하세요",
             (
-                Option("파일에 설치", "install", "기존 지침과 안전하게 병합"),
+                Option("파일에 설치", "install", "기존 파일에 관리 블록으로 추가"),
                 Option("지침만 출력", "print", "파일을 바꾸지 않고 표준 출력에 표시"),
             ), output=output, step=(3, 5),
         )
@@ -95,7 +95,7 @@ def collect_setup(directory: Path, *, output: TextIO | None = None) -> SetupChoi
         action = select_option(
             "실행 방법을 선택하세요",
             (
-                Option("설치하기", "install", "백업 후 기존 지침과 안전하게 병합"),
+                Option("설치하기", "install", "백업 후 관리 블록을 삽입하거나 갱신"),
                 Option("먼저 미리보기", "preview", "파일을 바꾸지 않고 차이만 확인"),
                 Option("선택 다시 하기", "restart"),
                 Option("취소", "cancel"),
